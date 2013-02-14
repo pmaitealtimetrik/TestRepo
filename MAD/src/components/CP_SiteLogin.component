@@ -1,0 +1,36 @@
+<apex:component controller="CP_SiteLoginController" layout="none">
+    <div id="leftColPortal">
+        <div class="sidebar1">
+            <apex:form id="loginForm" forceSSL="true">
+                <apex:actionFunction name="javascriptLogin" action="{!login}"/>
+                    <apex:outputLabel styleClass="label loginLabel" value="User Name" for="username"/>
+                    <apex:inputText styleClass="text" id="username" value="{!username}"/><br/>
+                    <a href="{!$Page.InMaintenance}" title="Forgot your user name?" id="forgotUserNameLink">Forgot your UserName?</a>
+                    <br/>
+                    <br/>
+                    <apex:outputLabel styleClass="label loginLabel" value="{!$Label.site.password}" for="password"/>
+                    <apex:inputSecret styleClass="text" id="password" value="{!password}" onkeypress="return noenter (event);"/><br/>
+                    <a href="{!$Page.InMaintenance}" title="Forgot your Password?" id="forgotPasswordLink">Forgot your Password?</a>
+       
+                    <div class="clear"/>
+                    <span class="form-link"/>
+                    <div class="clear"/>
+                    <br/>
+                    <p>
+                        <apex:inputCheckbox value="{!rememberUsername}"/>
+                        <span class="rememberUserName">Remember User Name</span> <br/>
+                        <br/>
+                        <apex:commandButton value="Login" styleClass="button" action="{!login}" id="submitbutton"/> <br/>
+        
+                    </p>
+                    <div>
+                        Don't have an Account? <br/>
+                        <a href="{!$Page.SiteRegister}" title="Register Here." id="register">Register Here.</a>
+                    </div>
+            </apex:form>
+        </div>
+        <div style="background-color: #fff">
+            
+        </div>
+    </div>
+</apex:component>
